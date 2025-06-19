@@ -1,0 +1,15 @@
+<div class="category-page">
+  <h2 style="font-family: Montecarlo;font-weight:600;font-size: 70px;  text-align: center;  text-decoration: wavy; color: #d4b689;">{{ categoryName | titlecase }} Collection</h2>
+  <div class="product-list">
+    <div *ngFor="let item of categoryProducts" class="product-card">
+      <img [src]="item.image" alt="{{item.name}}" />
+      <h4>{{ item.name }}</h4>
+      <p>{{ item.description }}</p>
+      <p style="font-weight: 600;">Price: ₹{{ item.price }}</p>
+      <div class="frame">
+      <button class="custom-btn btn-5" [routerLink]="['/details', item.id]"><span>Details</span> </button>
+      </div>
+    </div>
+  </div>
+</div>
+

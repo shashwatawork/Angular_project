@@ -1,0 +1,78 @@
+<header><nav class="nav">
+<a routerLink="">
+  <img src="../../assets/logo/logo.png.png" alt="E-Comm Logo" style="height:45px;">
+</a>  
+ <div [ngSwitch]="menuType">
+  <ul *ngSwitchCase="'default'" >
+   
+    <li><a routerLink="">Home</a></li>
+    <li><a routerLink="/category/bridal">Bridal</a></li>
+  <li><a routerLink="/category/jewellery">Jewellery</a></li>
+  <li><a routerLink="/category/groom">Groom</a></li>
+  <!-- Replace this block in your header.component.html -->
+<div *ngIf="menuType!=='seller'" class="animated-search">
+  <input
+    type="text"
+    placeholder="Search Products"
+    #searchInput
+    (keyup)="searchProduct($event)"
+    (blur)="hideSearch()"
+    [class.expanded]="isSearchActive"
+  />
+  <svg
+    (click)="toggleSearch()"
+    class="search-icon"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+  >
+    <path
+      fill="currentColor"
+      d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.41-.45 2.71-1.21 3.76l4.72 4.73l-1.41 1.41l-4.73-4.72A6.5 6.5 0 1 1 9.5 3m0 2a4.5 4.5 0 1 0 0 9a4.5 4.5 0 0 0 0-9Z"
+    />
+  </svg>
+  <ul class="suggested-search" *ngIf="searchResult">
+    <li *ngFor="let item of searchResult">
+      <a (mousedown)="redirectToDetails(item.id)">{{item.name}}</a>
+    </li>
+  </ul>
+</div>
+    <li><a routerLink="user-auth">Login/Sign-up</a></li>
+    <li><a href="#">Cart({{cartItems}})</a></li>
+  </ul>
+  <ul *ngSwitchCase="'user'" >
+   
+    <li><a routerLink="">Home</a></li>
+    <li><a routerLink="/category/bridal">Bridal</a></li>
+  <li><a routerLink="/category/jewellery">Jewellery</a></li>
+  <li><a routerLink="/category/groom">Groom</a></li>
+  <div *ngIf="menuType!=='seller'" class="animated-search">
+<input 
+    type="text"
+    placeholder="Search Products"
+    #searchInput
+    (keyup)="searchProduct($event)"
+    (blur)="hideSearch()"
+    [class.expanded]="isSearchActive"
+  />
+  <svg
+    (click)="toggleSearch()"
+    class="search-icon"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+  >
+    <path
+      fill="currentColor"
+      d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.41-.45 2.71-1.21 3.76l4.72 4.73l-1.41 1.41l-4.73-4.72A6.5 6.5 0 1 1 9.5 3m0 2a4.5 4.5 0 1 0 0 9a4.5 4.5 0 0 0 0-9Z"
+    />
+  </svg>
+  </div>
+    <li><a>{{userName | titlecase}}</a></li>
+    <li><a routerLink="my-orders" >My Orders</a></li>
+    <li><a (click)="userLogout()" >Logout</a></li>
+    <li><a [routerLink]="cartItems>0?'cart-page':null">Cart({{cartItems}})</a></li>
+  </ul>
+ 
+ </div>
+</nav>
+</header>
+<div class="headerspace"></div>

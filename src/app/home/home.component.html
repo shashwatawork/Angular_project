@@ -1,0 +1,128 @@
+<div>
+  <div class="main_layout" >
+
+  <div class="first_pic">
+    <a  routerLink="/" >
+      <img src="../../assets/homegrid/collections2.png" alt="Collections" width="100%" class="luxury-img"/></a>
+       <div class="overlay-text" style="font-family: MonteCarlo;
+    text-decoration:none;   
+    text-align: center;
+    color: #d4b689;
+    font-size: 100px;
+    font-weight: 600;
+    left:50%;
+    top:70%;
+    margin-top: auto;">Collections</div>
+    
+  </div>
+
+  
+  <div class="second_pic">
+    <a  routerLink="/category/bridal" >
+      <img src="../../assets/homegrid/bridealweargrid.png.png" alt="Bridal Wear" width="100%" class="luxury-img"/></a>
+           <div class="overlay-text" style="font-family: MonteCarlo;
+    text-decoration:none;   
+    text-align: center;
+    color: #d4b689;
+    font-size: 50px;
+    font-weight: 500;
+    margin-top: auto;
+    ;">Alankaar Brides</div>
+
+    
+  </div>
+
+  <div class="third_pic">
+    <a  routerLink="/category/groom" >
+      <img src="../../assets/homegrid/groomswear.png" alt="Grooms Wear" width="100%" height="100%" class="luxury-img"></a>
+      <div class="overlay-text" style="font-family: MonteCarlo;
+    text-decoration:none;   
+    text-align: center;
+    color: #d4b689;
+    font-size: 42px;
+    font-weight: 500;
+    margin-top: auto;
+    margin-right: 0;
+    left:30%;
+    word-wrap: normal;">Alankaar Grooms</div>
+
+    
+  </div>
+
+  <div class="fouth_pic">
+    <a routerLink="/category/jewellery" >
+      <img src="../../assets/homegrid/jewellerygrid.png" alt="Jewellery" width="100%" height="100%" class="luxury-img"></a>
+      <div class="overlay-text" style="font-family: MonteCarlo;
+    text-decoration:none;   
+    text-align: center;
+    color: #d4b689;
+    font-size: 50px;
+    font-weight: 500;
+    margin-top: auto;
+    left:30%;
+    ">Alankaar Jewellery</div>
+
+  </div>
+
+  <div class="fifth_pic">
+    <a  href="#plw" >
+      <img src="../../assets/homegrid/occasionwear.png" alt="Trending" width="100%" height="100%" class="luxury-img"></a>
+                 <div class="overlay-text" style="font-family: MonteCarlo;
+    text-decoration:none;   
+    text-align: center;
+    color: #d4b689;
+    font-size: 50px;
+    font-weight: 500;
+    margin-top: auto;
+    
+    ">Trending</div>
+
+    
+  </div></div>
+
+
+
+  <ngb-carousel *ngIf="popularProducts" style="width: 100%; margin-left: 0;">
+    <ng-template  *ngFor="let item of popularProducts" ngbSlide>
+      <div style="margin-top:100px ; font-family: MonteCarlo; font-size: 60px; font-weight:600; color:#7d6a2c ; text-align: center;">
+            <h1 >A quick Glance...</h1>
+
+      </div>
+      <div class="picsum-img-wrapper">
+        <a routerLink="/details/{{item.id}}"> <img class="product-header-image" src="{{item.image}}" alt="Random first slide">
+     </a>
+        </div>
+      <div class="carousel-caption">
+        <h3>{{item.name}}</h3>
+        <p>{{item.description}}</p>
+      </div>
+    </ng-template>
+  </ngb-carousel>
+
+<div class="product-list-wrapper" id="plw" style="margin-left:40px ;">
+  <h1>Our Newly Launched Products</h1>
+  <div class="row">
+    <div class="col-sm-3" *ngFor="let item of trendyProducts">
+      <!-- <a [routerLink]="'/details/' + item.id"> -->
+      <a class="product-item" [routerLink]="'/details/' + item.id">
+
+        <img [src]="item.image" alt="">
+        <div class="product-details">
+          
+          <h6 class="name-head">{{item.name}}</h6>
+          <div class="product-price">
+            <h6>Price:{{item.price}}</h6>
+          </div>
+          <div class="product-color">
+            <h6>Color:{{item.color}}</h6>
+          </div>
+        </div>
+        <div class="product-footer">
+          
+        </div>
+
+      </a>
+    </div>
+  
+  </div> 
+</div>
