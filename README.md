@@ -34,3 +34,4 @@ First install json-server using
 npm install -g json-server@0.10.1 --legacy-peer-deps
 Then to run the json server
 json-server --watch db.json --port 3000
+  
